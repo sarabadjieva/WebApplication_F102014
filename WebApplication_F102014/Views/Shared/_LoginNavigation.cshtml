@@ -1,0 +1,13 @@
+﻿@using WebApplication_F102014.Controllers
+
+@if (UsersController.currentUser != null)
+{
+    @Html.AntiForgeryToken()
+    <a class="userbtn" href="../Users/Profile"> Hello @UsersController.currentUser.Username !</a>
+    @Html.ActionLink("Log out", "Logout", "Users", null, new { @class = "userbtn" })
+}
+else
+{
+    <a class="userbtn" href="/Users/Registration">Register</a>
+    <a class="userbtn" href="/Users/Login">Log in</a>
+}

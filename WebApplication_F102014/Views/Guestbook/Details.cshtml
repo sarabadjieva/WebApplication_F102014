@@ -1,0 +1,49 @@
+﻿@using WebApplication_F102014.Controllers
+
+@model WebApplication_F102014.Models.GuestbookEntry
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+<hr />
+
+<div class="dl-horizontal">
+
+    <div style=" border: dotted; border-color: aliceblue;">
+        <smallLabel>
+            @Html.DisplayNameFor(model => model.Name)
+        </smallLabel>
+        <div style="text-align:center">
+            @Html.DisplayFor(model => model.Name)
+        </div>
+    </div>
+
+    <div style=" border: dotted; border-color: aliceblue; margin-top: 10px;">
+        <smallLabel>
+            @Html.DisplayNameFor(model => model.Message)
+        </smallLabel>
+        <div>
+            @Html.DisplayFor(model => model.Message)
+        </div>
+    </div>
+
+    <div style=" border: dotted; border-color: aliceblue; margin-top: 10px;">
+        <smallLabel>
+            @Html.DisplayNameFor(model => model.DateAdded)
+        </smallLabel>
+        <div style="text-align:center">
+            @Html.DisplayFor(model => model.DateAdded)
+        </div>
+    </div>
+
+</div>
+    <p>
+        @if (UsersController.currentUser != null && UsersController.currentUser.Username == Model.Name)
+        {
+            @Html.ActionLink("Edit", "Edit", new { id = Model.Id })
+        }
+
+        @Html.ActionLink("Back to List", "Index")
+    </p>

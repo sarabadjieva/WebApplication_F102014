@@ -1,0 +1,42 @@
+﻿@using WebApplication_F102014.Controllers
+@model IEnumerable<WebApplication_F102014.Models.User>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<hr />
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Password)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Password)
+        </td>
+        <td>
+            @if (UsersController.currentUser != null && UsersController.currentUser.Id == item.Id)
+            {
+                @Html.ActionLink("Edit", "Edit")
+                @Html.ActionLink("Details", "Details")
+                @Html.ActionLink("Delete", "Delete")
+            }
+             
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,16 @@
+﻿@using WebApplication_F102014.Controllers
+
+@model WebApplication_F102014.Models.User
+
+<h1>
+    @Html.DisplayFor(model => model.Username)'s profile
+</h1>
+<hr />
+
+<p>
+    @Html.ActionLink("Change Password", "Edit", new { id = UsersController.currentUser?.Id })
+    <br>
+    @Html.ActionLink("Delete Profile", "Delete", new { id = UsersController.currentUser?.Id })
+
+</p>
+
